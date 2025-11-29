@@ -1,0 +1,7 @@
+.home_container{
+    /* background-color: brown; */
+    background-image: url('/public/img/Picture-1-min.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}

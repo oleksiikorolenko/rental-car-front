@@ -4,6 +4,8 @@ import "./globals.css";
 import TanStackProvider from "@/components/TanStackProvider/TanStackProvider";
 import Header from "@/components/Header/Header";
 
+
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -24,6 +26,8 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
+  
   return (
     <html lang="en">
       <body
@@ -32,8 +36,8 @@ export default function RootLayout({
         <TanStackProvider>
           <Header/>
           {children}
-          </TanStackProvider>
-      </body>
+         </TanStackProvider>
+          </body>
     </html>
   );
 }

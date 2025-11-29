@@ -36,6 +36,6 @@ export type CarFetchParams = {
     perPage?: number;
     brand?: string;
     price?: number;
-    milageFrom?: number;
-    milageTo?: number;
+    mileageFrom?: number;
+    mileageTo?: number;
 }
