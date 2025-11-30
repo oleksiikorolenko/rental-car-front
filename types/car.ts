@@ -9,18 +9,15 @@ export type Car = {
       description: string;
     fuelConsumption: number;
       engineSize: string;
-    accessories: Accessories;
-    functionalities: Functionalities;
+    accessories: string[];
+    functionalities: string[];
       rentalPrice: string,
       rentalCompany: string;
       address: string;
-    rentalConditions: RentalConditions;
-    mileage: 5858;
+    rentalConditions: string[];
+    mileage: number;
 }
-    
-export type Accessories = string[];
-export type Functionalities = string[];
-export type RentalConditions = string[];
+
 
 export type FetchCarsResponse = {
     cars: Car[];
@@ -35,14 +32,15 @@ export type CarFetchParams = {
     page?: number;
     perPage?: number;
     brand?: string;
-    rentalPrice?: string;
+    rentalPrice?: number;
     mileageFrom?: number;
     mileageTo?: number;
 }
 
-export type PayloadProps ={
- name: string; 
- email: string; 
- bookingDate: string; 
- comments?: string;
-}
+
+export type Filters = {
+  brand?: string;
+  rentalPrice?: number;
+  mileageFrom?: number;
+  mileageTo?: number;
+};

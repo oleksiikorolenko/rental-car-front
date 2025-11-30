@@ -1,53 +1,44 @@
-"use client";
-import React from "react";
-import { keepPreviousData, useQuery } from "@tanstack/react-query";
-import { fetchCars } from "../../lib/api/clientApi";
-import { useStore } from "../../lib/store/useStore";
-import Loader from "../../components/Loader/Loader";
-import CarList from "../../components/CarList/CarList";
-import FiltersPanel from "../../components/FiltersPanel/FiltersPanel";
+import { fetchCars } from "@/lib/api/clientApi";
+import CatalogClient from "@/components/CatalogClient/CatalogClient";
+export const dynamic = "force-dynamic";
 
-export default function CatalogPage() {
-  const filters = useStore(s => s.filters);
-  const [page, setPage] = React.useState(1);
-  const [perPage] = React.useState(12);
 
-  // Important: when filters change, reset page to 1 and clear previous results
-  React.useEffect(() => {
-    setPage(1);
-  }, [filters.brand, filters.rentalPrice, filters.mileageFrom, filters.mileageTo]);
+type CatalogSearchParams = {
+  brand?: string;
+  rentalPrice?: string;
+  minMileage?: string;
+  maxMileage?: string;
+  page?: string;
+};
 
-  const queryKey = ["cars", { ...filters, page, perPage }];
- const { data, isLoading, isFetching, refetch } = useQuery({
-  queryKey,
-  queryFn: () =>
-    fetchCars({
-      brand: filters.brand || undefined,
-      rentalPrice: filters.rentalPrice || undefined,
-      mileageFrom: filters.mileageFrom ?? undefined,
-      mileageTo: filters.mileageTo ?? undefined,
-      page,
-      perPage,
-    }),
-  placeholderData: keepPreviousData,
-});
+type CatalogProps = {
+  searchParams: Promise<CatalogSearchParams>;
+};
+export default async function Catalog({ searchParams }: CatalogProps) {
+  const { brand, rentalPrice, minMileage, maxMileage, page} = await searchParams;
 
-  const cars = data?.cars ?? [];
+  const filters = {
+    brand: brand || undefined,
+    rentalPrice: rentalPrice ? Number(rentalPrice) : undefined,
+    minMileage: minMileage ? Number(minMileage) : undefined,
+    maxMileage: maxMileage ? Number(maxMileage) : undefined,
+  };
+
+  const currentPage = page ? Number(page) : 1;
+
+  const firstPage = await fetchCars({
+    ...filters,
+    page: currentPage,
+    perPage: 12,
+  });
+
 
   return (
-    <div>
-      <h1 style={{ padding: 16 }}>Catalog</h1>
-      <FiltersPanel />
-      {isLoading ? <Loader /> : <CarList cars={cars} />}
-      <div style={{ textAlign: "center", padding: 24 }}>
-        <button
-          onClick={() => setPage(prev => prev + 1)}
-          disabled={isFetching || (data && data.page >= data.totalPages)}
-          style={{ padding: "8px 16px", borderRadius: 8, cursor: "pointer" }}
-        >
-          {isFetching ? "Loading..." : "Load more"}
-        </button>
-      </div>
-    </div>
+    <>
+      <CatalogClient
+        initialFilters={filters}
+        initialPage={firstPage}
+      />
+    </>
   );
 }

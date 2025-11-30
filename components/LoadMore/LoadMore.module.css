@@ -1,0 +1,22 @@
+.btn_container { 
+    margin-top: 24px;
+     text-align: center;
+     }
+
+ .load_btn{
+  
+            padding: 8px 16px;
+            border-radius: 8px;
+            border: 1px solid #1976d2;
+            background-color: #1976d2;
+            color: #fff;
+            cursor: pointer;
+            opacity: 1;  
+          
+ }   
+ 
+ 
+ .message{
+     margin-top: 8; 
+     color: #777 ;
+ }

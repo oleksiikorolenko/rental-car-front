@@ -1,0 +1,143 @@
+.car {
+  padding-top: 84px;
+  padding-bottom: 104px;
+}
+
+.container {
+  margin: 0 auto;
+  width: 1440px;
+  padding: 0 120px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 72px;
+}
+
+.image {
+  border-radius: 19px;
+  margin-bottom: 40px;
+}
+
+.form {
+  border: 1px solid #dadde1;
+  border-radius: 10px;
+  padding: 32px;
+  width: 640px;
+  height: 488px;
+}
+
+.descriptions {
+  display: flex;
+}
+
+.name {
+  margin-bottom: 68px;
+}
+
+.title {
+  font-family: var(--font-manrope), sans-serif;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.3333;
+  color: #101828;
+  margin-bottom: 8px;
+}
+
+.loadText {
+  text-align: center;
+  margin: 0 auto;
+  font-family: var(--font-manrope), sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.3333;
+  color: #8d929a;
+  margin-bottom: 8px;
+}
+
+.carId {
+  margin-left: 16px;
+  font-family: var(--font-manrope), sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  color: #8d929a;
+}
+
+.textLocation {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 16px;
+}
+.location {
+  margin-right: 4px;
+}
+
+.address {
+  margin-right: 16px;
+  font-family: var(--font-manrope), sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  color: #101828;
+}
+
+.mileage {
+  margin-left: 16px;
+}
+
+.price {
+  font-family: var(--font-manrope), sans-serif;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 133%;
+  color: #3470ff;
+  margin-bottom: 32px;
+}
+
+.description {
+  font-family: var(--font-manrope), sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  color: #101828;
+}
+
+.rentalTitle,
+.carSpecificationsTitle,
+.accessoriesAndfunctionalitiesTitle {
+  font-family: var(--font-manrope), sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.2;
+  color: #101828;
+  margin-bottom: 20px;
+}
+
+.rentalConditionItem,
+.rentalTitleTextAdd,
+.featureItem {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: center;
+}
+
+.rentalTitleText,
+.accessoriesAndfunctionalitiesText {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  font-family: var(--font-manrope), sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 125%;
+  color: #101828;
+}
+
+.allInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 110px;
+}

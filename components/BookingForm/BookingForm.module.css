@@ -1,22 +1,127 @@
+.card {
+  width: 640px;
+  height: 488px;
+  margin: 0 auto;
+  padding: 32px;
+  border-radius: 24px;
+  border: 1px solid #dadde1;
+  background-color: #ffffff;
+}
+
+.title {
+  font-family: var(--font-manrope), sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.2;
+  color: #101828;
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  font-family: var(--font-manrope), sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  color: #8d929a;
+  margin-bottom: 24px;
+}
+
 .form {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 16px;
 }
-.form_input {
-  padding: 10px 12px;
-  border-radius: 8px;
-  border: 1px solid #d3d7e0;
+
+.label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
-.btn {
-  padding: 10px 12px;
-  border-radius: 8px;
+
+.input {
+  width: 100%;
   border: none;
-  background: #2f6bf7;
-  color: #fff;
+  border-radius: 12px;
+  padding: 12px 20px;
+  background-color: #f7f7f7;
+  font-family: var(--font-manrope), sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  color: #8d929a;
+  outline: none;
+}
+
+.input::placeholder {
+  color: #8d929a;
+}
+
+.input:focus {
+  background-color: #f7f7f7;
+}
+
+.textarea {
+  height: 88px;
+  resize: none;
+  overflow-y: auto;
+}
+
+.dateWrapper {
+  position: relative;
+}
+
+.dateInput {
+  text-align: left;
   cursor: pointer;
 }
-.btn:disabled {
-  opacity: 0.7;
+
+.calendarDropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  margin-top: 8px;
+  z-index: 20;
+}
+
+.error {
+  margin-top: 4px;
+  font-size: 12px;
+  color: #ef4444;
+}
+
+.button {
+  margin-top: 20px;
+  margin: 0 auto;
+  width: 156px;
+  height: 44px;
+  padding: 12px 51px;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #ffffff;
+  background-color: #2563eb;
+  cursor: pointer;
+  font-family: var(--font-manrope), sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.25;
+  color: #ffffff;
+}
+
+.button:disabled {
+  opacity: 0.6;
   cursor: not-allowed;
+}
+
+.button:hover {
+  background-color: #0B44CD;
+}
+
+.input:-webkit-autofill,
+.input:-webkit-autofill:hover,
+.input:-webkit-autofill:focus {
+  box-shadow: 0 0 0 1000px #f3f4f6 inset;
+  -webkit-text-fill-color: #8d929a;
+  caret-color: #111827;
 }

@@ -1,22 +1,42 @@
-// src/components/CarGrid/CarGrid.tsx
-import React from "react";
-import { Car } from "../../types/car";
-import CarCard from "../CarCard/CarCard";
-import styles from "./CarList.module.css";
+"use client";
 
-type Props = { cars: Car[] };
+import type { Car } from "@/types/car";
+import CarItem from "../CarCard/CarCard";
+import css from "./CarList.module.css";
 
-const CarList: React.FC<Props> = ({ cars }) => {
-  if (!cars.length) {
-    return <div className={styles.empty}>No cars found</div>;
-  }
-  return (
-    <div className={styles.grid}>
-      {cars.map((c) => (
-        <CarCard key={c.id} car={c} />
-      ))}
-    </div>
-  );
+type CarsListProps = {
+  cars: Car[];
+  favoritesCars: string[];
+  onToggleFavorite: (id: string) => void;
+  noCarsFound: boolean;
 };
 
-export default CarList;
+export default function CarsList({
+  cars,
+  favoritesCars,
+  onToggleFavorite,
+  noCarsFound,
+}: CarsListProps) {
+
+  return (
+    <>
+      {noCarsFound && <p className={css.noCarsFound}>No cars found.</p>}
+
+      <ul className={css.list}>
+        {cars.map((car) => {
+          const isFavorite = favoritesCars.includes(car.id);
+          return (
+            <CarItem
+              key={car.id}
+              car={car}
+              isFavorite={isFavorite}
+              onToggleFavorite={onToggleFavorite}
+            />
+          );
+        })}
+      </ul>
+    </>
+  );
+}
+
+

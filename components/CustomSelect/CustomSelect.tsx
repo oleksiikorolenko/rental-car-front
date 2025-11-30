@@ -5,6 +5,7 @@ import styles from "./CustomSelect.module.css";
 export type Option = { label: string; value: string };
 
 type Props = {
+  
   label?: string;
   options: Option[];
   value?: string | number | null;
