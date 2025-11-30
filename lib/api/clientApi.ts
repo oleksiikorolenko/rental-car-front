@@ -1,15 +1,15 @@
 import { api } from "./api";
-import { CarDetails, CarFetchParams, FetchCarsResponse } from "@/types/car";
+import { CarDetails, CarFetchParams, FetchCarsResponse, PayloadProps } from "@/types/car";
 
 export async function fetchCars(params: CarFetchParams = {}): Promise<FetchCarsResponse> {
-    const{page = 1, perPage = 12, brand, price, mileageFrom, mileageTo} = params
+    const{page = 1, perPage = 12, brand, rentalPrice, mileageFrom, mileageTo} = params
     const query: Record<string, string | number> = {
         page,
         perPage,
     }
 
     if (brand) query.brand = brand;
-    if (price !== undefined) query.price = price;
+    if (rentalPrice !== undefined) query.rentalPrice = rentalPrice;
     if (mileageFrom !== undefined) query.mileageFrom = mileageFrom;
     if (mileageTo !== undefined) query.milageTo = mileageTo;
     const response = await api.get<FetchCarsResponse>("/cars", { params: query });
@@ -28,6 +28,14 @@ export async function fetchBrand(): Promise<string[]>{
     const response = await api.get<string[]>("/brands");
     console.log(response);
     return response.data;
+}
+
+
+
+export async function createBooking(carId: string, payload: PayloadProps) {
+  // If API differs, adjust path
+  const { data } = await api.post(`/cars/${carId}/book`, payload);
+  return data;
 }
 
 fetchBrand();

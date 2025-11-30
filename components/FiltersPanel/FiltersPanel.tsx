@@ -18,7 +18,7 @@ const FiltersPanel: React.FC = () => {
     [brands]
   );
 
-  const priceOptions: Option[] = useMemo(
+  const rentalPriceOptions: Option[] = useMemo(
     () => [
       { label: "$30", value: "30" },
       { label: "$40", value: "40" },
@@ -39,9 +39,9 @@ const FiltersPanel: React.FC = () => {
 
       <CustomSelect
         placeholder="Choose a price"
-        options={priceOptions}
-        value={filters.price !== null ? String(filters.price) : null}
-        onChange={(v) => setFilters({ price: v || undefined })}
+        options={rentalPriceOptions}
+        value={filters.rentalPrice !== null ? String(filters.rentalPrice) : null}
+        onChange={(v) => setFilters({ rentalPrice: v || undefined })}
       />
 
       <div className={css.inputs}>

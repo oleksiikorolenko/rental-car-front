@@ -15,7 +15,7 @@ export default function CatalogPage() {
   // Important: when filters change, reset page to 1 and clear previous results
   React.useEffect(() => {
     setPage(1);
-  }, [filters.brand, filters.price, filters.mileageFrom, filters.mileageTo]);
+  }, [filters.brand, filters.rentalPrice, filters.mileageFrom, filters.mileageTo]);
 
   const queryKey = ["cars", { ...filters, page, perPage }];
  const { data, isLoading, isFetching, refetch } = useQuery({
@@ -23,7 +23,7 @@ export default function CatalogPage() {
   queryFn: () =>
     fetchCars({
       brand: filters.brand || undefined,
-      price: filters.price || undefined,
+      rentalPrice: filters.rentalPrice || undefined,
       mileageFrom: filters.mileageFrom ?? undefined,
       mileageTo: filters.mileageTo ?? undefined,
       page,

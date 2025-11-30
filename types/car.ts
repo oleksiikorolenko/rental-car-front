@@ -11,7 +11,7 @@ export type Car = {
       engineSize: string;
     accessories: Accessories;
     functionalities: Functionalities;
-      rentalPrice: number,
+      rentalPrice: string,
       rentalCompany: string;
       address: string;
     rentalConditions: RentalConditions;
@@ -35,7 +35,14 @@ export type CarFetchParams = {
     page?: number;
     perPage?: number;
     brand?: string;
-    price?: number;
+    rentalPrice?: string;
     mileageFrom?: number;
     mileageTo?: number;
+}
+
+export type PayloadProps ={
+ name: string; 
+ email: string; 
+ bookingDate: string; 
+ comments?: string;
 }

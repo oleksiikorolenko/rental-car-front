@@ -4,7 +4,7 @@ import { persist } from "zustand/middleware";
 
 export type Filters = {
     brand?: string | null;
-    price?: string | null;
+    rentalPrice?: string | null;
     mileageFrom?: number | null;
     mileageTo?: number | null;
 }

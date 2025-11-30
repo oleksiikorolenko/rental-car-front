@@ -1,0 +1,29 @@
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 26px 120px;
+}
+
+.nav_container{
+    display: flex;
+    gap: 32px;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav_link{
+    font-family: var(--font-family);
+font-weight: 500;
+font-size: 16px;
+line-height: 1.25;
+text-align: center;
+color: var(--main);
+}
+
+.nav_link:hover,
+.nav_link:focus,
+.nav_link:active{
+    color: var(--button-hover);
+}
+
